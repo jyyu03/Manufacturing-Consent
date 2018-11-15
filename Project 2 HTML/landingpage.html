@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>PROJECT II</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="w3schools.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="styles.css">
+
+<style>
+    body {font-family: "Lato", sans-serif}
+    .mySlides {display: none}
+</style>
+
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-black w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="#Proposal" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROPOSAL</a>
+        <a href="#Directions" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DIRECTIONS</a>
+        <a href="#Map" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MAP</a>
+        <a href="#Analysis" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
+        <a href="#Members" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MEMBERS</a>
+    </div>
+</div>
+
+<!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+<div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <a href="#Proposal" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">PROPOSAL</a>
+    <a href="#Directions" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">DIRECTIONS</a>
+    <a href="#Map" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MAP</a>
+    <a href="#Analysis" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">ANALYSIS</a>
+    <a href="#Members" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">MEMBERS</a>
+</div>
+
+<!-- Page content -->
+
+<!-- Automatic Slideshow Images -->
+<div class="w3-content w3-padding-16" style="max-width:2000px;margin-top:46px;">
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/hillaryclinton1.jpeg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/trump2.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/clintonvoters.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/voting4.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/hilary3.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/voting2.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/cheer.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+    <div class="mySlides w3-display-container w3-center">
+        <img src="images/trumphat.jpg" width="auto" height="400" style="box-shadow:3px 3px 5px grey;">
+    </div>
+
+</div>
+
+<!-- The Proposal Section -->
+<div class="w3-container w3-content w3-padding-16" style="max-width:800px;" id="Proposal">
+    <hr>
+    <h2 class="w3-wide w3-center">MANUFACTURING CONSENT</h2>
+    <p class="w3-justify">The 2016 American presidential election was unprecedented in the use of technology, social media, and mass communication all articulating a narrative that has, to some, perpetuated a socio-political preferential bias towards a particular presidential candidate. To Noam Chomsky and Edward Herman, these revelations are defined as “Manufacturing Consent” or the "effective and powerful ideological institutions that carry out a system-supportive propaganda function ". Our project hopes to elucidate this proposition and determine the statistical rationalities to support their condemning report. 
+    <br>
+    We have various methods in illustrating such geo-political phenomena namely using news sources and Twitter. In the Chomskian scheme, these news sources may represent the ideological institutions that disseminate propaganda-like narratives while Twitter may represent the voice of the people, a dialectical counterpoint to the former. We would then use the 2016 election results to qualify our findings and examine how effective the parameters of manufacturing consent are in reigning in the opinions of the affected populace. In short:
+    </p>
+    <ol>
+        <li>Define a list of “buzzwords” that would detail political leanings in a region</li>
+        <li>Web scrape local and municipal media sources with the buzzwords in mind</li>
+        <li>Use Tweepy on Twitter to similarly find these buzzwords </li>
+        <li>Analyze the data using frequency count and VADER</li>
+        <li>Map out the aggregated data onto a map using leaf.ly and layer the different buzzwords with a heatmap function and/or frequency counts</li>
+        <li>Layer on the election results and compare the three map data</li>
+        <li>Host the findings using Flask</li>
+    </ol>
+</div>
+
+<!-- Directions Section -->
+<div class="w3-black" id="Directions">
+    <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+        <h2 class="w3-wide w3-center">Directions</h2>
+        <ol>
+            <li>You put your right foot in</li>
+            <li>You take your right foot out</li>
+            <li>You put your right foot in</li>
+            <li>And you shake it all about</li>
+            <li>You do the hokey pokey</li>
+            <li>And you turn yourself around</li>
+            <li>That's what it's all about</li>
+        </ol>
+    </div>
+</div>
+
+<!-- The Map Section -->
+<div id="Map">
+    <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+        <h2 class="w3-wide w3-center">Map</h2>
+        <img src="images/map.jpg" styles="width:100%">
+    </div>
+</div>
+
+<!-- Analysis Section -->
+<div class="w3-black" id="Analysis">
+    <div class="w3-container w3-content w3-padding-32" style="max-width:800px" >
+        <h2 class="w3-wide w3-center">Analysis</h2>
+        <p>
+            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+        </p>
+    </div>
+</div>
+
+<!-- The Members Section -->
+<div class= "w3-light-grey" id="Members">
+    <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+        <h2 class="w3-wide w3-center">Members</h2>
+        <div class="w3-row-padding w3-margin-top">
+            
+            <div class="w3-quarter">
+                <div class="w3-card">
+                    <img src="images/eric.png" class="w3-opacity w3-hover-opacity-off"  style="width:100%">
+                    <div class="w3-container w3-center">
+                        <p>Eric</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter">
+                <div class="w3-card">
+                    <img src="images/vikas.png" class="w3-opacity w3-hover-opacity-off" style="width:100%">
+                    <div class="w3-container w3-center">
+                        <p>Vikas</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter">
+                <div class="w3-card">
+                    <img src="images/ed.png" class="w3-opacity w3-hover-opacity-off" style="width:100%">
+                    <div class="w3-container w3-center">
+                        <p>Ed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w3-quarter">
+                <div class="w3-card">
+                    <img src="images/jay.png" class="w3-opacity w3-hover-opacity-off" style="width:100%">
+                    <div class="w3-container w3-center">
+                        <p>Jay</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Page Content -->
+
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-16 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <p class="w3-medium">Northwestern Data Science Boot Camp</p>
+</footer>
+
+<script>
+// Automatic Slideshow - change image every 4 seconds
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 3000);    
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+
+// When the user clicks anywhere outside of the modal, close it
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
