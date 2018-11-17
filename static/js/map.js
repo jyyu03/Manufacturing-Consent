@@ -2,7 +2,7 @@
 var csvData = [];
 
 
-d3.csv("../data/wi_2016.csv", function (data) {
+d3.csv("../static/data/wi_2016.csv", function (data) {
 
   console.log("data" + data)
   data.forEach(function (d) {
@@ -62,7 +62,7 @@ d3.csv("../data/wi_2016.csv", function (data) {
   }
 
   // Grabbing our GeoJSON data..
-  d3.json("../data/WI.geojson", function (data) {
+  d3.json("../static/data/WI.geojson", function (data) {
     L.geoJson(data, {
       style: function (feature) {
         let details = getDetails(feature.properties.COUNTY_NAME);
