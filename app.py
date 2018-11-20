@@ -18,14 +18,19 @@ def home():
 def mapwi():
     return render_template("map_wi.html")
 
-@app.route("/buzzwordmap")
-def buzzwordmap():
-    return render_template("map_buzzwordmap.html")
+@app.route("/buzzwordmap/<buzzword>")
+def buzzwordmap(buzzword):
+    print(f'buzz word {buzzword}')
+    return render_template("map_buzzwordmap.html", buzzword=buzzword)
 
 
-@app.route("/getdata")
-def getdata():
-    fetchData = db_details.find()
+@app.route("/getdata/<buzzword>")
+def getdata(buzzword):
+    print(f'buzz word getdata {buzzword}')
+    word = buzzword
+    fetchData = db_details.find({'buzzword': word})
+    #fetchData = db_details.find()
+
     dataList = []
     for x in fetchData:
         obj = {}
