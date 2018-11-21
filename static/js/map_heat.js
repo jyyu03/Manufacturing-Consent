@@ -25,6 +25,7 @@ function createRandom(value, count) {
 }
 var buzzword = d3.select("p").text()
 console.log("fetched buzzword from html " + buzzword);
+//TODO temp hack
 if (buzzword === 'clinton') {
   buzzword = "hillary's email";
 }
@@ -53,6 +54,21 @@ d3.json(url, function (data) {
     blur: 55,
     gradient: { 0.4: 'blue', 0.65: 'lime', 1: 'red' }
   }).addTo(heatMap);
+
+
+
+  d3.json("../static/data/WI.geojson", function (data) {
+    L.geoJson(data, {
+      style: function (feature) {
+
+        return {
+          color: "black",
+          weight: 0.5
+        }
+      }
+    }).addTo(heatMap);
+  });
+
 
 
 });
