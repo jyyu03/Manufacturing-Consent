@@ -65,8 +65,21 @@ d3.json(url, function (data) {
           color: "black",
           weight: 0.5
         }
+      },
+      onEachFeature: function (feature, layer) {
+
+        layer.on({
+          mouseover: function (event) {
+            layer = event.target;
+          }
+        })
+        layer.bindPopup("<h5>" + feature.properties.COUNTY_NAME + "</h5>"
+        );
+
       }
-    }).addTo(heatMap);
+    }
+    
+    ).addTo(heatMap);
   });
 
 
