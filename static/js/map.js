@@ -99,8 +99,8 @@ d3.csv("../static/data/wi_2016.csv", function (data) {
 
     var div = L.DomUtil.create('div', 'info legend');
     div.innerHTML += '<h6><i>US Presidential Election 2016 - Wisconsin</i></h6> '
-    div.innerHTML += '<br><i style="color: blue">Counties won by Democrats</i> '
-    div.innerHTML += '<br><i style="color: red">Counties won by Republican</i> '
+    div.innerHTML += '<br><i style="color: blue">Counties won by Democrats (1382536, 46.45%)</i> '
+    div.innerHTML += '<br><i style="color: red">Counties won by Republican* (1405284,	47.22%)</i> '
     return div;
   };
 
