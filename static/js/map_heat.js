@@ -15,10 +15,10 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 function createRandom(value, count) {
 
-  let randomList = []
+  let randomList = [];
   for (let i = 0; i < count; i++) {
 
-    randomList.push([+value[0] + Math.random(), +value[1] + Math.random()])
+    randomList.push([+value[0] + Math.random()/100, +value[1] + Math.random()/100])
   }
 
   return randomList;
@@ -26,9 +26,9 @@ function createRandom(value, count) {
 var buzzword = d3.select("p").text()
 console.log("fetched buzzword from html " + buzzword);
 //TODO temp hack
-if (buzzword === 'clinton') {
-  buzzword = "hillary's email";
-}
+// if (buzzword === 'clinton') {
+//   buzzword = "hillary's email";
+// }
 let url = `/getdata/${buzzword}`
 console.log("url " + url)
 // Grabbing our GeoJSON data..

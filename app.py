@@ -1,14 +1,20 @@
 from flask import Flask, jsonify, render_template
 import pymongo
+import re
+
 
 
 app = Flask(__name__)
 
-conn = 'mongodb://localhost:27017'
+#conn = 'mongodb://localhost:27017'
+conn = 'mongodb://edwardwisejr:Flender77!@ds255403.mlab.com:55403/manufacture_consent'
 client = pymongo.MongoClient(conn)
 
-db = client['buzzword']
-db_details = db['twitter']
+#db = client['buzzword']
+db = client.get_database()
+#db_details = db['twitter']
+db_details = db['mc_tweets_to_plot']
+
 
 @app.route("/")
 def home():
@@ -27,17 +33,18 @@ def buzzwordmap(buzzword):
 @app.route("/getdata/<buzzword>")
 def getdata(buzzword):
     print(f'buzz word getdata {buzzword}')
-    word = buzzword
-    fetchData = db_details.find({'buzzword': word})
+    rgx = re.compile(f'.*{buzzword}.*', re.IGNORECASE)
+
+    fetchData = db_details.find({'buzz_word': rgx})
     #fetchData = db_details.find()
 
     dataList = []
     for x in fetchData:
         obj = {}
-        obj['buzzword'] = x['buzzword']
+        obj['buzzword'] = x['buzz_word']
         obj['date'] = x['date']
         obj['lat'] = x['lat']
-        obj['lon'] = x['lon']
+        obj['lon'] = x['long']
         obj['source'] = x['source']
         dataList.append(obj)
     print(f'Rendering  data {dataList}')
