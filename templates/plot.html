@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>First Chart</title>
+  <link rel="stylesheet" href="../static/css/w3schools.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+  <style>
+      body {
+          font-family: "Lato", sans-serif
+      }
+  
+      .mySlides {
+          display: none
+      }
+  </style>
+</head>
+<body>
+    <!-- The div where we will inject our map -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)"
+                onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="#Proposal" class="w3-bar-item w3-button w3-padding-large w3-hide-small">PROPOSAL</a>
+            <a href="#Directions" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DIRECTIONS</a>
+            <div class="w3-dropdown-hover">
+  
+                <a href="#Map" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MAP</a>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="/mapwi" class="w3-bar-item w3-button">Wisconsin 2016</a>
+                    <a href="/buzzwordmap/clinton" class="w3-bar-item w3-button">Clinton Email</a>
+                </div>
+            </div>
+  
+            <div class="w3-dropdown-hover">
+                <a href="#Analysis" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ANALYSIS</a>
+                <div class="w3-dropdown-content w3-bar-block w3-border">
+                    <a href="/trends/clinton" class="w3-bar-item w3-button">BuzzWord Trends</a>
+                </div>
+            </div>
+            <a href="#Members" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MEMBERS</a>
+        </div>
+    </div>
+    <p>{{buzzword}}</p>
+
+  <div id="plot"></div>
+
+  <script src="../static/js/plots.js"></script>
+</body>
+</html>

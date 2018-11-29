@@ -26,7 +26,7 @@ def mapwi():
 
 @app.route("/buzzwordmap/<buzzword>")
 def buzzwordmap(buzzword):
-    print(f'buzz word {buzzword}')
+    print(f'map buzz word {buzzword}')
     return render_template("map_buzzwordmap.html", buzzword=buzzword)
 
 
@@ -49,6 +49,17 @@ def getdata(buzzword):
         dataList.append(obj)
     print(f'Rendering  data {dataList}')
     return jsonify(dataList)
+
+
+@app.route("/trends/<buzzword>")
+def trends(buzzword):
+    print(f'trends buzz word {buzzword}')
+    return render_template("plot.html", buzzword=buzzword)
+
+@app.route("/getplotdata/<buzzword>")
+def plotData(buzzword):
+    print(f'plot buzz word {buzzword}')
+    return getdata(buzzword)
 
 
 if __name__ == "__main__":
