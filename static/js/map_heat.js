@@ -86,6 +86,26 @@ d3.json(url, function (data) {
 
 });
 
+var legend = L.control({ position: 'topright' });
+
+legend.onAdd = function (map) {
+
+  var div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML += '<h6><i>US Presidential Election 2016 - Wisconsin</i></h6> '
+  div.innerHTML += '<br><i>Twitter Heatmap for buzzword :  '
+
+  if("clinton" === buzzword){
+    div.innerHTML += 'Hillary Clinton Emails</i> '
+
+  } else {
+    div.innerHTML += buzzword + '</i> '
+
+  }
+  return div;
+};
+
+legend.addTo(heatMap);
+
 
 
 
