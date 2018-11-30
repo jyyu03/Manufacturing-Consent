@@ -58,8 +58,9 @@ def trends(buzzword):
 
 @app.route("/getplotdata/<buzzword>")
 def plotData(buzzword):
-    print(f'plot buzz word {buzzword}')
+    
     return getdata(buzzword)
+
 
 
 if __name__ == "__main__":
