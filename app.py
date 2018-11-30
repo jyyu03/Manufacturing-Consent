@@ -58,7 +58,7 @@ def trends(buzzword):
 
 @app.route("/getplotdata/<buzzword>")
 def plotData(buzzword):
-    
+
     return getdata(buzzword)
 
 

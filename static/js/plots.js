@@ -10,83 +10,74 @@ function handleSubmit() {
 
     d3.event.preventDefault();
 
-
-}
-function getData() {
-    var url = `/getplotdata/${buzzword}`;
-    console.log("url " + url)
-    var list = []
-    // d3.json(url, function (data) {
-    //     console.log("getting json data " + data);
-    //     list.push(data)
-    // });
-
-    d3.json(url, (data) => list = data);
-    return list;
 }
 
-var plotData = getData();
-console.log("plot data " + plotData.length);
 
 function buildPlot() {
 
     var dataurl = `/getplotdata/${buzzword}`;
-    console.log("url " + dataurl)
+    //var dataurl = `/getplotdata/email`;
     $.ajax({
         url: dataurl,
-        success: function(d){
-            console.log("ajaz data " + d.length);
+        success: function (d) {
+            //console.log("ajaz data " + JSON.stringify(d));
+            var dateList = [];
+            var dateMap = new Map();
+
+            for (var i = 0; i < d.length; i++) {
+                let newDate = new Date(d[i]["date"]).toISOString().split('T')[0];
+                if(newDate.includes("2016")){
+                    let val = dateMap.get(newDate);
+                    if (val != null) {
+                        val = val + 1;
+                        dateMap.set(newDate, val);
+                    } else {
+                        val = 1;
+                        dateMap.set(newDate, val);
+                    }
+                }
+                
+            }
+
+
+            var sortedMap = new Map([...dateMap.entries()].sort());
+            let dates = [...sortedMap.keys()];
+            let counts = [...sortedMap.values()];
+
+            let startDate = dates[0];
+            let endDate = dates[dates.length -1]
+
+            var trace = {
+                type: "scatter",
+                mode: "lines",
+                name: name,
+                x: dates,
+                y: counts,
+                line: {
+                  color: "#17BECF"
+                }
+              };
+
+              var data = [trace];
+
+              var layout = {
+                title: `${buzzword} Buzzword Twitter Trends in 2016 - Wisconsin`,
+                xaxis: {
+                  range: [startDate, endDate],
+                  type: "date"
+                },
+                yaxis: {
+                  autorange: true,
+                  type: "linear"
+                }
+              };
+          
+              Plotly.newPlot("plot", data, layout);
+
         }
     }
 
     );
-    // d3.json(url, function (data) {
-    //     console.log("getting json data " + data);
-
-    //     var name = data.dataset.name;
-    //     var stock = data.dataset.dataset_code;
-    //     var startDate = data.dataset.start_date;
-    //     var endDate = data.dataset.end_date;
-    //     var dates = unpack(data.dataset.data, 0);
-    //     var closingPrices = unpack(data.dataset.data, 1);
-    //     var trace1 = {
-    //         type: "scatter",
-    //         mode: "lines",
-    //         name: name,
-    //         x: dates,
-    //         y: closingPrices,
-    //         line: {
-    //             color: "#17BECF"
-    //         }
-    //     };
-
-    //     var data = [trace1];
-
-    //     var layout = {
-    //         title: `${stock} closing prices`,
-    //         xaxis: {
-    //             range: [startDate, endDate],
-    //             type: "date"
-    //         },
-    //         yaxis: {
-    //             autorange: true,
-    //             type: "linear"
-    //         }
-    //     };
-
-    //     Plotly.newPlot("plot", data, layout);
-    // });
-    // d3.json("/getplotdata/clinton").then(function (data) {
-    //     console.log("***fetching data " + data.length);
-
-
-
-
-    // });
-
-    // $.getJSON(url, function(data){
-    //     console.log("fetched data " + data)
-    // })
 
 
 }
