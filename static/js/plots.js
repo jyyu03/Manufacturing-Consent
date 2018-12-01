@@ -86,7 +86,7 @@ function buildPlot() {
               var data = [trace];
 
               var layout = {
-                title: `${buzzword} Buzzword Twitter Trends in 2016 - Wisconsin`,
+                title: `"${buzzword}" Buzzword Twitter Trends in 2016 - Wisconsin`,
                 xaxis: {
                   range: [startDate, endDate],
                   type: "date"
