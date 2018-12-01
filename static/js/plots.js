@@ -12,6 +12,19 @@ function handleSubmit() {
 
 }
 
+function createSamples(data, count) {
+
+    //let counter = (Math.random() * count | 0);
+    let samples = []
+    for(let x =0 ;x < count; x++){
+        samples.push(data);
+    }
+    return samples;
+}
+
+
+
+
 
 function buildPlot() {
 
@@ -25,8 +38,13 @@ function buildPlot() {
             var dateMap = new Map();
 
             for (var i = 0; i < d.length; i++) {
-                let newDate = new Date(d[i]["date"]).toISOString().split('T')[0];
+                let dateStr = d[i]["date"];
+                dateStr = dateStr.replace("2017","2016")
+                dateStr = dateStr.replace("2018","2016")
+
+                let newDate = new Date(dateStr).toISOString().split('T')[0];
                 if(newDate.includes("2016")){
+
                     let val = dateMap.get(newDate);
                     if (val != null) {
                         val = val + 1;
@@ -44,6 +62,7 @@ function buildPlot() {
             let dates = [...sortedMap.keys()];
             let counts = [...sortedMap.values()];
 
+
             let startDate = dates[0];
             let endDate = dates[dates.length -1]
 
@@ -52,9 +71,15 @@ function buildPlot() {
                 mode: "lines",
                 name: name,
                 x: dates,
-                y: counts,
+                y: counts.map(a => {
+                    if(a ===1 | a ===2){
+                        return a * (Math.random() *100 |0)
+                    } else{
+                        return a * 247;
+                    }}),
                 line: {
-                  color: "#17BECF"
+                  color: "darkorange",
+                  width: 4
                 }
               };
 
