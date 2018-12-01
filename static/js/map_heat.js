@@ -38,12 +38,26 @@ d3.json(url, function (data) {
 
   for (let i = 0; i < data.length; i++) {
     //heatArray.push([data[i].lat, data[i].lon])
-    let lst = createRandom([data[i].lat, data[i].lon], 1000)
+    let cnt = 1000;
+    if(buzzword === "wall"){
+      cnt = 100;
+    }
+    let lst = [];
+    if((data[i].lat > 43 && data[i].lat < 45)){
+      lst = createRandom([data[i].lat, data[i].lon], cnt);
 
-    console.log("lst " + lst[1]);
+    }
+
 
     for (let j = 0; j < lst.length; j++) {
-      heatArray.push([lst[i][0], lst[i][1]])
+      console.log("lst " + lst[i]);
+
+      if(lst[i] != null){
+        console.log("lst " + [lst[i][0], lst[i][1]]);
+
+        heatArray.push([lst[i][0], lst[i][1]])
+      }
+
 
     }
 
